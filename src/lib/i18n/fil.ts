@@ -26,6 +26,17 @@ const fil: Record<TranslationKey, string> = {
     "home.lastUpdated": "Huling Na-update",
     "home.waterLevelTrend": "TREND NG LEBEL NG TUBIG (24H)",
     "home.errorLoadingData": "Hindi Ma-load ang Data",
+    "home.frame.open": "Tingnan ang pinakabagong nakuhang larawan",
+    "home.frame.title": "Pinakabagong larawan ng daluyan",
+    "home.frame.captured": "Kinuha noong",
+    "home.frame.close": "Isara ang pinakabagong larawan",
+    "home.frame.alt":
+        "Pinakabagong larawan ng ibabaw ng binabantayang daluyan",
+    "home.frame.loading": "Kinukuha ang pinakabagong larawan…",
+    "home.frame.empty": "Wala pang available na larawan mula sa camera.",
+    "home.frame.error": "Hindi ma-load ang pinakabagong larawan.",
+    "home.frame.disclaimer":
+        "Ito ang pinakabagong snapshot at hindi live video. Nakikita lamang ng camera ang nakikitang ibabaw ng daluyan.",
 
     // Alerts page
     "alerts.noAlerts": "Walang alerto",

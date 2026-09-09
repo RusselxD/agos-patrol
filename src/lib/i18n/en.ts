@@ -24,6 +24,16 @@ const en = {
     "home.lastUpdated": "Last Updated",
     "home.waterLevelTrend": "WATER LEVEL TREND (24H)",
     "home.errorLoadingData": "Error Loading Data",
+    "home.frame.open": "View latest captured image",
+    "home.frame.title": "Latest waterway frame",
+    "home.frame.captured": "Captured",
+    "home.frame.close": "Close latest frame",
+    "home.frame.alt": "Latest camera frame of the monitored waterway surface",
+    "home.frame.loading": "Loading the latest frame…",
+    "home.frame.empty": "No camera frame is available yet.",
+    "home.frame.error": "The latest frame could not be loaded.",
+    "home.frame.disclaimer":
+        "This is the latest available snapshot, not live video. The camera shows only the visible waterway surface.",
 
     // Alerts page
     "alerts.noAlerts": "No alerts",

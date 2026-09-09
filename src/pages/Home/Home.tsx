@@ -4,6 +4,7 @@ import { useWebSocket } from "../../context/WebsocketContext";
 import BlockageStatusCard from "./components/BlockageStatusCard";
 import ConnectionStatusBanner from "./components/ConnectionStatusBanner";
 import FusionAnalysisCard from "./components/FusionAnalysisCard";
+import LatestWaterwayFrame from "./components/LatestWaterwayFrame";
 import WaterLevelStatusCard from "./components/WaterLevelStatusCard/WaterLevelStatusCard";
 import WaterLevelSparkline from "./components/WaterLevelSparkline";
 import WeatherConditionCard from "./components/WeatherConditionCard/WeatherConditionCard";
@@ -22,16 +23,22 @@ export default function Home() {
     const { connectionStatus, lastMessageAt } = useWebSocket();
 
     const [timeAgo, setTimeAgo] = useState("");
+    const [isStale, setIsStale] = useState(false);
 
     useEffect(() => {
-        const update = () => setTimeAgo(getTimeSinceUpdate(lastMessageAt));
+        const update = () => {
+            setTimeAgo(getTimeSinceUpdate(lastMessageAt));
+            setIsStale(
+                Boolean(
+                    lastMessageAt &&
+                        Date.now() - lastMessageAt.getTime() > 5 * 60 * 1000,
+                ),
+            );
+        };
         update();
         const interval = setInterval(update, 30000);
         return () => clearInterval(interval);
     }, [lastMessageAt]);
-
-    const isStale =
-        lastMessageAt && Date.now() - lastMessageAt.getTime() > 5 * 60 * 1000;
 
     return (
         <Page>
@@ -47,6 +54,7 @@ export default function Home() {
             </div>
             <FusionAnalysisCard />
             <BlockageStatusCard />
+            <LatestWaterwayFrame />
             <WaterLevelStatusCard />
             <WaterLevelSparkline />
             <WeatherConditionCard />
