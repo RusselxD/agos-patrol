@@ -8,6 +8,7 @@ export interface ResponderVerifyRequest {
     lastName: string;
     phoneNumber: string;
     status: "pending" | "active";
+    devOtp: string | null;
 }
 
 export interface ResponderOTPVerifyRequest {
@@ -20,4 +21,8 @@ export interface ResponderOTPVerifyResponse {
     message: string;
     requiresResend: boolean;
     responderToken: string | null;
+}
+
+export interface ResponderOTPDispatchResponse {
+    devOtp: string | null;
 }

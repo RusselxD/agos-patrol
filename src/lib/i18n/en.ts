@@ -124,6 +124,7 @@ const en = {
     "verify.sending": "Sending...",
     "verify.sendNewCode": "Send new code",
     "verify.newCodeSent": "A new verification code has been sent.",
+    "verify.demoOtp": "Demo OTP",
     "verify.agreement":
         "By verifying, you agree to receive emergency SMS alerts from AGOS Flood Monitoring System.",
 

@@ -65,7 +65,7 @@ npm run dev
 ## Auth Flow
 
 1. Responder enters phone number at `/verify/phone-lookup`
-2. Backend sends OTP via SMS (SMSGate Android app)
+2. Backend sends OTP via SMS (SMSGate Android app), or returns a Demo OTP when explicitly enabled for development
 3. Responder enters OTP at `/verify/otp-verification`
 4. On success, `responderId` + `responderToken` (JWT, 90-day expiry) stored in localStorage
 5. Axios interceptor injects `Authorization: Bearer {token}` on every request

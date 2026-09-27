@@ -3,6 +3,7 @@ import type {
     ResponderOTPVerifyRequest,
     ResponderVerifyRequest,
     ResponderOTPVerifyResponse,
+    ResponderOTPDispatchResponse,
 } from "../../types/verify";
 import apiClient from "./axiosConfig";
 
@@ -14,8 +15,11 @@ export const verifyAPI = {
         return res.data as ResponderVerifyRequest;
     },
 
-    resendVerificationOTP: async (responderId: string): Promise<void> => {
-        await apiClient.post(`/responder/resend-otp/${responderId}`);
+    resendVerificationOTP: async (
+        responderId: string,
+    ): Promise<ResponderOTPDispatchResponse> => {
+        const res = await apiClient.post(`/responder/resend-otp/${responderId}`);
+        return res.data as ResponderOTPDispatchResponse;
     },
 
     verifyOTP: async (

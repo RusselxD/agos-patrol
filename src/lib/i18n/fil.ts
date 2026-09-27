@@ -128,6 +128,7 @@ const fil: Record<TranslationKey, string> = {
     "verify.sending": "Ipinapadala...",
     "verify.sendNewCode": "Magpadala ng bagong code",
     "verify.newCodeSent": "Naipadala na ang bagong verification code.",
+    "verify.demoOtp": "Demo OTP",
     "verify.agreement":
         "Sa pag-verify, sumasang-ayon ka na makatanggap ng emergency SMS alerts mula sa AGOS Flood Monitoring System.",
 

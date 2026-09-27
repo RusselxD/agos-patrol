@@ -19,6 +19,9 @@ export default function OTPVerification() {
     const [requiresResend, setRequiresResend] = useState(false);
     const [isResending, setIsResending] = useState(false);
     const [resendSuccess, setResendSuccess] = useState(false);
+    const [devOtp, setDevOtp] = useState<string | null>(
+        responderDetails?.devOtp ?? null,
+    );
 
     const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
 
@@ -80,9 +83,13 @@ export default function OTPVerification() {
         setIsResending(true);
         setOtpError("");
         setResendSuccess(false);
+        setDevOtp(null);
 
         try {
-            await verifyAPI.resendVerificationOTP(responderDetails.responderId);
+            const res = await verifyAPI.resendVerificationOTP(
+                responderDetails.responderId,
+            );
+            setDevOtp(res.devOtp);
             setResendSuccess(true);
             setRequiresResend(false);
             setOtp(new Array(6).fill(""));
@@ -112,6 +119,17 @@ export default function OTPVerification() {
                         {formatPHNumber(responderDetails.phoneNumber)}
                     </p>
                 </div>
+
+                {devOtp && (
+                    <div className="mb-6 rounded-lg border border-amber-300 bg-amber-50 p-3 text-center dark:border-amber-700 dark:bg-amber-950/50">
+                        <p className="text-xs font-medium text-amber-700 dark:text-amber-300">
+                            {t("verify.demoOtp")}
+                        </p>
+                        <p className="mt-1 font-mono text-2xl font-bold tracking-widest text-amber-900 dark:text-amber-100">
+                            {devOtp}
+                        </p>
+                    </div>
+                )}
 
                 <div className="flex flex-col items-center">
                     <InputOTPField

@@ -140,7 +140,7 @@ Responder settings:
 Two-step OTP authentication:
 
 1. **PhoneLookup** — Phone number input with normalization (`normalizePhoneNumber()` supports 09xx, 639xx, 9xx formats). Calls API, stores responder preview in context.
-2. **OTPVerification** — 6-digit input. On success: stores `responderId` and `responderToken` in localStorage. Handles `requiresResend` flag. Resend button.
+2. **OTPVerification** — 6-digit input. Displays “Demo OTP” when the backend returns a non-null `dev_otp`. On success: stores `responderId` and `responderToken` in localStorage. Handles `requiresResend` flag. Resend button.
 
 ### InstallGate
 PWA install prompt:
